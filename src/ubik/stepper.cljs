@@ -14,8 +14,8 @@
 
 (defn write-serial [anim]
   (match anim
-         {:direction direction :id id} (.write serial-port (direction-mapping direction))
-         :else (debugf "unhandled anim %s" anim)))))
+         {:direction direction :id id} (.write serial-port (str (direction-mapping direction) id))
+         :else (debugf "unhandled anim %s" anim)))
 
 (let [{:keys [chsk ch-recv send-fn state]}
       (sente/make-channel-socket-client! "/chsk" {:type :auto :packer :edn :protocol :http :host "localhost:3000"})]
