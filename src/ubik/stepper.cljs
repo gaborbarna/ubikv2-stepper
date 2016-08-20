@@ -8,13 +8,17 @@
 
 (def SerialPort (nodejs/require "serialport"))
 (def serial-port (SerialPort. "/dev/cu.usbmodem1421" #js {:baudRate 9600}))
-(def direction-mapping {:prev "l" :next "r"})
+
+(def type-mapping {:top 0 :center 1 :bottom 2})
+(def direction-mapping {:prev -50 :next 50})
 
 (.on serial-port "open" (fn [] (debugf "serial port open")))
 
 (defn write-serial [anim]
   (match anim
-         {:direction direction :id id} (.write serial-port (str (direction-mapping direction) id))
+         {:direction direction :type type} (let [cmd (str \x (type-mapping type) (direction-mapping direction))]
+                                             (debugf "cmd %s" cmd)
+                                             (.write serial-port cmd))
          :else (debugf "unhandled anim %s" anim)))
 
 (let [{:keys [chsk ch-recv send-fn state]}
