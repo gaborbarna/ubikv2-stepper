@@ -33,5 +33,3 @@ void loop() {
     steppers[i].run();
   }
 }
-
-
