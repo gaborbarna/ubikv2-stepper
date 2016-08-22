@@ -10,9 +10,9 @@ void setup() {
   Serial.setTimeout(10);
   Serial.begin(9600);
   for (int i = 0; i < 3; i++) {
-    steppers[i].setMaxSpeed(100);
-    steppers[i].setSpeed(100);
-    steppers[i].setAcceleration(80000);
+    steppers[i].setMaxSpeed(50);
+    steppers[i].setSpeed(50);
+    steppers[i].setAcceleration(50);
   }
 }
 
