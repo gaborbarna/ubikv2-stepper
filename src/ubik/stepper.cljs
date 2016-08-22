@@ -10,7 +10,7 @@
 (def serial-port (SerialPort. "/dev/cu.usbmodem1421" #js {:baudRate 9600}))
 
 (def type-mapping {:top 0 :center 1 :bottom 2})
-(def direction-mapping {:prev -50 :next 50})
+(def direction-mapping {:prev -100 :next 100})
 
 (.on serial-port "open" (fn [] (debugf "serial port open")))
 
