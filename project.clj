@@ -29,5 +29,6 @@
                :source-map true
                :pretty-print true}}]}
 
-  :aliases {"start" ["do" "clean," "npm" "install," "cljsbuild" "once," "shell" "node" "target/stepper.js"]}
+  :aliases {"compile-run" ["do" "clean," "npm" "install," "cljsbuild" "once," "shell" "node" "target/stepper.js"]
+            "run" ["shell" "node" "target/stepper.js"]}
   :repositories {"sonatype-oss-public" "https://oss.sonatype.org/content/groups/public/"})
