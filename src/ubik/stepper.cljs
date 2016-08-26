@@ -22,7 +22,7 @@
          :else (debugf "unhandled anim %s" anim)))
 
 (let [{:keys [chsk ch-recv send-fn state]}
-      (sente/make-channel-socket-client! "/chsk" {:type :auto :packer :edn :protocol :http :host "localhost:3000"})]
+      (sente/make-channel-socket-client! "/chsk" {:type :auto :packer :edn :protocol :http :host "rotat.io"})]
     (def ch-chsk ch-recv)
     (def chsk-send! send-fn))
 
